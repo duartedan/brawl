@@ -269,7 +269,7 @@ tfoot td, thead th {
 }
 .form-grid legend {
     font-style: italic;
-    margin-bottom: 3rem;
+    padding: 3rem 0;
 }
 .form-group {
     flex: 1 1 36rem;
