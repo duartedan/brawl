@@ -1,0 +1,431 @@
+/* VARIÁVEIS */
+:root {
+    --secondary-color: #c53f9b;
+    --primary-color: #fa3860;
+    --white-color: #fff;
+    --light-grey-color: #eee;
+    --gap: 3rem;
+    --brawl-font: font-family: 'brawl_font', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body {
+    font-size: 2.5rem;
+    font-family: 'brawl_font', sans-serif;
+    color: var(--secondary-color);
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+}
+
+/* LINK DA FONTE */
+@font-face {
+    font-family: 'brawl_font';
+    src: url("../font/lilitaone-regular-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+h1 {
+    font-size: 6rem;
+    text-transform: uppercase;
+}
+h2 {
+    font-size: 6rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: 0.3rem 0.3rem black;
+    -webkit-text-stroke: 0.1rem black;
+}
+h3 {
+    font-size: 5rem;
+}
+h4 {
+    font-size: 4.5rem;
+}
+h5 {
+    font-size: 4rem;
+}
+h6 {
+    font-size: 3.5rem;
+}
+p {
+    margin-bottom: 1rem;
+}
+table {
+    width: 100%;
+    min-width: 36rem;
+    border-collapse: collapse;
+}
+table caption {
+    font-style: italic;
+    font-size: 2.5rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+}
+table td, table th {
+    padding: 1rem;
+    border: 0.1rem solid var(--light-grey-color);
+    text-align: left;
+    white-space: nowrap;
+}
+tfoot td, thead th {
+    background: var(--white-color);
+    color: var(--primary-color);
+}
+
+/* DEFINIÇÕES GERAIS */
+.main-bg {
+    background-image: url('../img/radiant-gradient.svg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white-color);
+}
+.white-bg {
+    background: var(--white-color);
+    color: var(--secondary-color);
+}
+
+.menu-spacing {
+    height: 6.2rem;
+}
+.section {
+    min-height: 100vh;
+}
+.dev {
+    min-height: 100vh;
+}
+
+
+.main-content {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 8rem var(--gap);
+}
+
+/* MENU SUPERIOR */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-bottom: 0.1rem solid var(--light-grey-color);
+    z-index: 1;
+}
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.menu h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color)
+}
+.menu h1 a {
+    color: inherit;
+}
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+.menu ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    position: relative;
+    text-transform: uppercase;
+}
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--secondary-color);
+    transition: all 300ms ease-in-out;
+}
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+/* CONTEÚDO INTRO */
+.home-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--gap);
+    align-items: stretch;
+    min-height: 100vh;
+}
+.home-text-content, .home-img {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.home-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* TROFEUS */
+.trofeus-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 80rem;
+    text-align: justify;
+}
+
+/* RANKED */
+.ranked {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.grid-main-heading {
+    margin-bottom: 1rem;
+}
+.grid-description {
+    padding-bottom: 5rem;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+}
+.grid h3 {
+    font-size: 4rem;
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+    text-shadow: 0.3rem 0.3rem black;
+    -webkit-text-stroke: 0.08rem black;
+}
+.grid h3::before {
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    font-size: 7rem;
+    font-style: italic;
+    top: -2rem;
+    left: -1rem;
+    transform: rotate(5deg);
+}
+
+/* SKINS */
+.skins-img {
+    max-width: 36rem;
+    max-height: 36rem;
+    overflow: hidden;
+}
+.skins-img img {
+    width: 100%;
+    transition: all 300ms ease-in-out;
+    object-fit: cover;
+}
+.skins-img img:hover {
+    transform: translate(-3%, -3%) scale(1.2) rotate(5deg);
+}
+
+/* TABELA */
+.responsive-table {
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+/* ME ADICIONE */
+.contact-form {
+    grid-column: span 2;
+}
+.contact-form .form-grid {
+    border: none;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--gap);
+}
+.form-grid {
+    color: var(--secondary-color);
+}
+.form-grid legend {
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+.form-group {
+    flex: 1 1 36rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.7rem;
+}
+.form-group input, .form-group textarea {
+    border: none;
+    background: var(--light-grey-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    font: var(--brawl-font);
+    font-size: 2.2rem;
+    outline: none;
+}
+.form-group input:focus, .form-group textarea:focus {
+    box-shadow: 0.3rem 0.3rem black;
+    border: 0.2rem solid black;
+}
+.full-width {
+    width: 100%;
+    flex: 1 1 100%;
+}
+.button {
+    text-align: center;
+}
+.form-group button {
+    border: 0.4rem solid ;
+    background: none;
+    padding: 1rem 1.5rem;
+    font-size: 0.5rem;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    font: var(--brawl-font);
+}
+.form-group button:hover {
+    border: 0.4rem solid var(--secondary-color);;
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+.contact-img {
+    width: 75%;
+    justify-self: end;
+}
+
+/* FOOTER */
+#footer p {
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    text-shadow: 0.2rem 0.2rem black;
+    -webkit-text-stroke: 0.1rem black;
+}
+
+.close-menu {
+    display: none;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+    text-align: center;
+    background: var(--secondary-color);
+    color: var(--white-color);
+    border: 0.1rem solid var(--white-color);
+    padding: 0 0.7rem;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    display: flex;               /* Centraliza */
+    align-items: center;         /* Centraliza vertical */
+    justify-content: center;     /* Centraliza horizontal */
+    cursor: pointer;
+}
+
+
+@media (max-width: 80rem) {
+    .home-content, .grid {
+        display: block;
+        grid-template-columns: 1fr;
+    }
+    .home-content p {
+        margin-bottom: 5rem;
+    }
+
+
+    .skins-img {
+        aspect-ratio: 1/1;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .skins-img img {
+        width: 100%;
+    }
+
+
+    .menu {
+        bottom: 0;
+        text-align: center;
+        display: none;
+    }
+    .menu-content {
+        height: 100vh;
+    }
+    .menu-content h1{
+        margin-bottom: 3rem;
+    }
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* PROPRIEDADES DO BOTAO DE MENU MOBILE */
+    .close-menu-label::after {
+        content: '☰';
+        position: fixed;
+        z-index: 2;
+        top: 1rem;
+        right: 2rem;
+        background: var(--primary-color);
+        color: var(--white-color);
+        border-radius: 0.7rem;
+        border: 0.1rem solid var(--white-color);
+        font-size: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+    
+    /* × */
+    .close-menu:checked~.menu {
+        display: block;
+    }
+    .close-menu:checked~.close-menu-label::after {
+        display: block;
+        content: '×';
+    }
+    
+    /* REMOVE O ESPAÇO SUPERIOR DO MENU */
+    .menu-spacing {
+        display: none;
+    }
+
+    .contact-img {
+    width: 80%;
+    justify-self: center;
+    }
+
+}
